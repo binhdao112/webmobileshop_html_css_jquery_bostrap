@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>webshop1</title>
+    <link rel="shortcut icon" type="image/png" href="img/icon/favicon.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--include css/index.css-->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="javascript/data.js"></script>
+
+
+</head>
+
+<body onload="showlogin(); show_content();">
+    <!--dialog login-->
+
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Đăng nhập</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <input id="email1" type="text" class="form-control" name="email" placeholder="Email">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        </div>
+                        <div class="input-group">
+                            <input id="password1" type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h5>Nếu bạn chưa có tài khoản thì tạo tài khoản ở đây!! <a>Đăng ký</a></h5>
+                    <button type="button" onclick="login();" class="btn btn-danger">Đăng Nhập</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--dialog sign in-->
+    <div class="modal fade" id="signin" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Đăng ký</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <input id="password" type="password" class="form-control" name="password" placeholder="Mật Khẩu">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <input id="repassword" type="password" class="form-control" name="repassword" placeholder="Xác Nhận mật khẩu">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <input id="Address" type="text" class="form-control" name="Address" placeholder="Địa chỉ">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h5>Nếu bạn đã có tài khoản thì đăng nhập ở đây!! <a>Đăng nhập</a></h5>
+                    <button type="button" class="btn btn-danger" onclick="signin();">Đăng ký</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--body main-->
+    <!--header-->
+    <div class="jumbotron">
+        <div class="container-fluid text-center">
+            <h2>WEB SHOP</h2>
+        </div>
+    </div>
+    <!--navbar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#"><img src="img/icon/home.png" alt="" style="width: 50px; height: 50px;margin-top: -15px;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <!--nav phone-->
+                    <li class="dropdown" id="menu1" href=>
+                        <a href="index.html?style=phone?trang=1">Phone
+                            <ul class="dropdown-menu" role="menu"  aria-labelledby="menu1" id="menuphone_content"></ul>
+                            </a>
+                    </li>
+                    <!--nav laptop-->
+                    <li class="dropdown" id="menu1">
+                        <a href="index.html?style=laptop?trang=1" id="menu1">Laptop
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menulaptop_content"></ul>
+                                </a>
+                    </li>
+                    <!--nav tablet-->
+                    <li class="dropdown" id="menu1">
+                        <a href="index.html?style=tablet?trang=1" id="menu1">Tablet
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menutablet_content"></ul>
+                                    </a>
+                    </li>
+                    <!-- menu phu kien-->
+                    <li class="dropdown " id="menu1">
+                        <a href="index.html?style=phukien?trang=1" id="menu1">Phụ kiện
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menupk_content"></ul>
+                                        </a>
+                    </li>
+                </ul>
+                <div class="nav navbar-nav navbar-center col-sm-2 col-md-3 col-lg-6" style="margin-top: 8px;">
+                    <form>
+                        <div class="input-group" style=" overflow: hidden;">
+                            <input value="" type="text" class="form-control" id="input-search" value="binh" placeholder="Search">
+                            <div class="input-group-btn ">
+                                <button id="search-bttn" class="btn btn-default" type="button" onclick="search();">
+                                  <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="login1" class="nav navbar-nav" class="col-sm-1">
+
+                </div>
+                <div class="nav navbar-nav navbar-right" class="col-sm-4">
+                    <li style="margin-right: 0"><a href="card.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--BODY-->
+
+    <div class="container " id="show-content">
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!---->
+
+
+
+
+
+
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 " style="margin-top: 7px;margin-bottom: 7px">
+        <div class="col-xs-4 col-sm-4 ">
+            <img src="img/icon/mien-phi-van-chuyen.png " class="col-xs-12 " alt="freeship ">
+            <span>Miễn Phí vận chuyển</span>
+        </div>
+        <div class="col-xs-4 col-sm-4 ">
+            <img src="img/icon/stock-vector-handshake-icon-263715131_vectorized.png " class="col-xs-12 ">
+            <span>Thân thiện</span>
+        </div>
+        <div class="col-xs-4 col-sm-4 d-flex ">
+            <img src="img/icon/tải xuống.png " alt=" " class="col-xs-12 ">
+            <span>Bảo hành 12 tháng</span>
+        </div>
+    </div>
+
+
+    <footer class="container-fluid text-center ">
+        <p>Online Store Copyright</p>
+        <form class="form-inline ">Get deals:
+            <input type="email " class="form-control " size="50 " placeholder="Email Address ">
+            <button type="button " class="btn btn-danger ">Sign Up</button>
+        </form>
+    </footer>
+</body>
+<script language="javascript " type="text/javascript " src="javascript/product-content.js "></script>
+<script src="javascript/general.js "></script>
+
+</html>
